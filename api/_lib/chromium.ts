@@ -41,7 +41,7 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
             await Promise.all(
                 loadframes.map((f) => f.waitForNavigation({
                     waitUntil: 'networkidle0',
-                    timeout: Number(waitforframe),
+                    timeout: waitforframe,
                 })),
             );
         } catch (ex) {
@@ -84,7 +84,7 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
         buffer = await page.screenshot({ encoding: 'binary' });
     }
 
-    await page.goto('about:blank', { waitUntil: 'networkidle0' });
+    await page.goto('about:blank', { waitUntil: 'load' });
 
     await page.close();
 
