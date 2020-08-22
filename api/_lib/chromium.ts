@@ -86,7 +86,5 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
 
     await page.goto('about:blank', { waitUntil: 'networkidle0' });
 
-    await page.close();
-
     return buffer;
 }
