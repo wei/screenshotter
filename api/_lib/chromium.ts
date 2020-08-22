@@ -1,17 +1,17 @@
-import { launch, Page, ElementHandle } from 'puppeteer-core';
+import {
+    launch, Page, ElementHandle, Browser,
+} from 'puppeteer-core';
 import { getOptions } from './options';
 import { ParsedRequest } from './types';
 
-let _page: Page | null;
+let _browser: Browser | null;
 
-async function getPage(isDev: boolean) {
-    if (_page) {
-        return _page;
+async function getPage(isDev: boolean): Promise<Page> {
+    if (!_browser) {
+        const options = await getOptions(isDev);
+        _browser = await launch(options);
     }
-    const options = await getOptions(isDev);
-    const browser = await launch(options);
-    _page = await browser.newPage();
-    return _page;
+    return _browser.newPage();
 }
 
 export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
@@ -85,6 +85,8 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     }
 
     await page.goto('about:blank', { waitUntil: 'networkidle0' });
+
+    await page.close();
 
     return buffer;
 }
