@@ -18,13 +18,13 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     const page = await getPage(isDev);
 
     const {
-        url, selector, canvas, ua, size, full, css, waitforframe,
+        url, selector, canvas, ua, viewport, full, css, waitforframe,
     } = request;
 
     if (ua) {
         await page.setUserAgent(ua);
     }
-    await page.setViewport(size);
+    await page.setViewport(viewport);
 
     if (url.startsWith('data:text/html;base64,')) {
         await page.setContent(Buffer.from(url.substr('data:text/html;base64,'.length), 'base64').toString('binary'), { waitUntil: 'networkidle0' });

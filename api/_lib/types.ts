@@ -5,7 +5,7 @@ export interface ParsedRequest {
     selector: string[];
     canvas: boolean;
     ua: string | undefined;
-    size: Viewport;
+    viewport: Viewport;
     full: boolean;
     css: string | undefined;
     waitforframe: number | undefined;

@@ -6,14 +6,14 @@ export function parseRequest(req: IncomingMessage) {
     console.log(`HTTP ${req.url}`);
     const { query } = parse(req.url || '/', true);
     const {
-        url, selector, canvas, ua, size = '1024,768', full, css, waitforframe,
+        url, selector, canvas, ua, viewport = '1024,768', full, css, waitforframe,
     } = (query || {});
 
     if (!url) {
         throw new Error('Missing url parameter');
     }
-    if (!size.toString().match(/^\d+,\d+$/)) {
-        throw new Error('Malformed size parameter');
+    if (!viewport.toString().match(/^\d+,\d+$/)) {
+        throw new Error('Malformed viewport parameter');
     }
     if (waitforframe && !waitforframe.toString().match(/^\d+$/)) {
         throw new Error('waitforframe needs to be in milliseconds');
@@ -24,12 +24,12 @@ export function parseRequest(req: IncomingMessage) {
         selector: getArray(selector),
         canvas: !!(canvas || '').toString(),
         ua: ua ? ua.toString() : undefined,
-        size: {
-            width: Number(size.toString().split(',')[0]),
-            height: Number(size.toString().split(',')[1]),
+        viewport: {
+            width: Number(viewport.toString().split(',')[0]),
+            height: Number(viewport.toString().split(',')[1]),
         },
         full: !!(full || '').toString(),
-        css: css ? css.toString() : undefined,
+        css: getArray(css).join(''),
         waitforframe: waitforframe ? Number(waitforframe.toString()) : undefined,
     };
 
