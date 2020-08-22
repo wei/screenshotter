@@ -31,7 +31,7 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     } else if (url.startsWith('data:text/html,')) {
         await page.setContent(url.substr('data:text/html,'.length), { waitUntil: 'networkidle0' });
     } else {
-        await page.goto(url, { waitUntil: 'networkidle0' });
+        await page.goto(url, { waitUntil: 'networkidle2' });
     }
 
     if (waitforframe && page.frames().length > 1) {

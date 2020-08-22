@@ -1,4 +1,10 @@
 {
+  "functions": {
+    "api/**": {
+      "maxDuration": 10,
+      "memory": 1024
+    }
+  },
   "redirects": [
     { "source": "/", "destination": "https://github.com/wei/screenshotter#readme", "permanent": false }
   ],
