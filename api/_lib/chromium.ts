@@ -69,19 +69,17 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     if (selector && canvas) {
         const pngDataURL: string = await page.evaluate((_elem) => _elem.toDataURL('image/png'), elem);
         buffer = Buffer.from(pngDataURL.split(',')[1], 'base64');
-    } else if (!full) {
-        if (elem) {
-            buffer = await elem.screenshot({ encoding: 'binary' });
-        } else {
-            buffer = await page.screenshot({ encoding: 'binary' });
-        }
+    } else if (elem && !full) {
+        buffer = await elem.screenshot({ encoding: 'binary' });
+    } else if (!elem && full) {
+        buffer = await page.screenshot({ encoding: 'binary', fullPage: true });
     } else {
         if (elem) {
             await page.evaluate((_selector) => {
                 window.scrollBy(0, document.querySelector(_selector).offsetTop);
             }, selector);
         }
-        buffer = await page.screenshot({ encoding: 'binary' });
+        buffer = await page.screenshot({ encoding: 'binary', fullPage: false });
     }
 
     await page.goto('about:blank', { waitUntil: 'load' });
