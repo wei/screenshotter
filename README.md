@@ -18,17 +18,14 @@ Serverless service that generates dynamic screenshots on demand.
 
 ```
 /screenshot
-  ?url=https%3A%2F%2Fcnn.com                # https://cnn.com
+  ?url=https%3A%2F%2Fnews.google.com        # https://news.google.com
   &size=375,812                             # iPhone X Screen Size
-  &ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1
-                                            # iPhone XR User Agent
   &selector=article                         # CSS Selector
-  &css=article%7Bbackground%3Alightyellow%3Bpadding%3A5px%3Bborder%3A5px%20solid%20gray%3B%7D
-                                            # article{background:lightyellow;padding:5px;border:5px solid gray;}
+  &css=article%7Bbackground%3Alightblue%3Bpadding%3A5px%3Bborder%3A3px%20solid%20gray%3B%7D
+                                            # article{background:lightblue;padding:5px;border:3px solid gray;}
 ```
 
-[Preview](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fcnn.com&size=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=article&css=article%7Bbackground%3Alightyellow%3Bpadding%3A5px%3Bborder%3A5px%20solid%20gray%3B%7D)
-[![Preview](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fcnn.com&size=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=article&css=article%7Bbackground%3Alightyellow%3Bpadding%3A5px%3Bborder%3A5px%20solid%20gray%3B%7D)](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fcnn.com&size=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=article&css=article%7Bbackground%3Alightyellow%3Bpadding%3A5px%3Bborder%3A5px%20solid%20gray%3B%7D)
+[![Preview](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fnews.google.com&size=375,812&selector=article&css=article%7Bbackground%3Alightblue%3Bpadding%3A5px%3Bborder%3A3px%20solid%20gray%3B%7D)](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fnews.google.com&size=375,812&selector=article&css=article%7Bbackground%3Alightblue%3Bpadding%3A5px%3Bborder%3A3px%20solid%20gray%3B%7D)
 
 
 ## Why use this service?
