@@ -26,18 +26,18 @@ Serverless service that generates dynamic screenshots on demand.
   &css=[role=heading]:after{content:' (Worldwide)';font-size:80%}
   &css=g-scrolling-carousel{display:none !important}
 ```
-_ℹ️: Don't forget to URL encode query string parameters_
+_ℹ️ Don't forget to URL encode query string parameters_
 
-[**Sample Screenshot**](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcorona%2Bvirus%2Bcases%2Bworldwide&viewport=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=%23kp-wp-tab-HealthStats>div%3Afirst-child>div%3Afirst-child&css=%5Brole%3Dheading%5D%3Abefore%7Bcontent%3A%27Coronavirus%20%27%3Bfont-weight%3Abold%7D&css=%5Brole%3Dheading%5D%3Aafter%7Bcontent%3A%27%20(Worldwide)%27%3Bfont-size%3A80%25%7D&css=g-scrolling-carousel%7Bdisplay%3Anone%20!important%7D)
+[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcorona%2Bvirus%2Bcases%2Bworldwide&viewport=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=%23kp-wp-tab-HealthStats>div%3Afirst-child>div%3Afirst-child&css=%5Brole%3Dheading%5D%3Abefore%7Bcontent%3A%27Coronavirus%20%27%3Bfont-weight%3Abold%7D&css=%5Brole%3Dheading%5D%3Aafter%7Bcontent%3A%27%20(Worldwide)%27%3Bfont-size%3A80%25%7D&css=g-scrolling-carousel%7Bdisplay%3Anone%20!important%7D)
 
-![](https://screenshotter.vercel.app/screenshot?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcorona%2Bvirus%2Bcases%2Bworldwide&viewport=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=%23kp-wp-tab-HealthStats>div%3Afirst-child>div%3Afirst-child&css=%5Brole%3Dheading%5D%3Abefore%7Bcontent%3A%27Coronavirus%20%27%3Bfont-weight%3Abold%7D&css=%5Brole%3Dheading%5D%3Aafter%7Bcontent%3A%27%20(Worldwide)%27%3Bfont-size%3A80%25%7D&css=g-scrolling-carousel%7Bdisplay%3Anone%20!important%7D)
+![](https://screenshotter.git.ci/screenshot?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dcorona%2Bvirus%2Bcases%2Bworldwide&viewport=375,812&ua=Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2012_0%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Version%2F12.0%20Mobile%2F15E148%20Safari%2F604.1&selector=%23kp-wp-tab-HealthStats>div%3Afirst-child>div%3Afirst-child&css=%5Brole%3Dheading%5D%3Abefore%7Bcontent%3A%27Coronavirus%20%27%3Bfont-weight%3Abold%7D&css=%5Brole%3Dheading%5D%3Aafter%7Bcontent%3A%27%20(Worldwide)%27%3Bfont-size%3A80%25%7D&css=g-scrolling-carousel%7Bdisplay%3Anone%20!important%7D)
 
 
 ## Why use this service?
 
 The short answer is that it would take a long time to painstakingly design and run a screenshot service.
 
-That's where `screenshotter` comes in. You can simply pass the url and custom options to our service and it will return screenshots for you on the fly!
+That's where `screenshotter` comes in. You can simply pass the url and custom options to the service and it will return screenshots for you on the fly!
 
 
 ## Development

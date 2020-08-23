@@ -28,8 +28,6 @@ services:
       - EXIT_ON_HEALTH_FAILURE=true
       - DEFAULT_BLOCK_ADS=true
       - ENABLE_DEBUGGER=false
-      - FUNCTION_ENABLE_INCOGNITO_MODE=true
-
     networks:
       - screenshotter_net
 
