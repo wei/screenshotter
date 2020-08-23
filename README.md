@@ -23,10 +23,11 @@ _ℹ️ Don't forget to URL encode query string parameters_
 /screenshot
   ?url=https://www.npr.org/sections/news
   &selector=.featured .item
+  &css=.featured .item{padding:10px!important}
 ```
-[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item)
+[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item&css=.featured%20.item%7Bpadding%3A10px!important%7D)
 
-![](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item)
+![](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item&css=.featured%20.item%7Bpadding%3A10px!important%7D)
 
 
 #### Coronavirus Daily Cases
