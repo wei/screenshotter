@@ -18,16 +18,15 @@ _ℹ️ Don't forget to URL encode query string parameters_
 
 ### Examples
 
-#### NPR Latest Featured News
+#### Latest Featured News
 ```
 /screenshot
-  ?url=https://www.npr.org/sections/news
-  &selector=.featured .item
-  &css=.featured .item{padding:10px!important}
+  ?url=https://www.bbc.com
+  &selector=.media
 ```
-[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item&css=.featured%20.item%7Bpadding%3A10px!important%7D)
+[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://www.bbc.com&selector=.media)
 
-![](https://screenshotter.git.ci/screenshot?url=https://www.npr.org/sections/news&selector=.featured%20.item&css=.featured%20.item%7Bpadding%3A10px!important%7D)
+![](https://screenshotter.git.ci/screenshot?url=https://www.bbc.com&selector=.media)
 
 
 #### Coronavirus Daily Cases
