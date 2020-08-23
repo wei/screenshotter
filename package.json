@@ -4,14 +4,17 @@
     "node": "12.x"
   },
   "scripts": {
+    "start": "micro -l tcp://0.0.0.0:${PORT-3000} api/dist/index.js",
     "lint": "eslint . --ext .ts --ignore-pattern .gitignore",
     "build": "tsc -p api/tsconfig.json"
   },
   "dependencies": {
     "chrome-aws-lambda": "2.1.1",
+    "micro": "^9.3.4",
     "puppeteer-core": "2.1.1"
   },
   "devDependencies": {
+    "@types/micro": "^7.3.3",
     "@types/puppeteer": "2.0.1",
     "@types/puppeteer-core": "2.0.0",
     "@typescript-eslint/eslint-plugin": "^3.6.1",

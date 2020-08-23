@@ -1,6 +1,6 @@
 .now
 .vercel
 node_modules
+.env
 api/dist
 public/dist
-

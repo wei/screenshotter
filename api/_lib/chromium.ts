@@ -1,5 +1,5 @@
 import {
-    launch, Page, ElementHandle, Browser,
+    launch, connect, Page, ElementHandle, Browser, LoadEvent,
 } from 'puppeteer-core';
 import { getOptions } from './options';
 import { ParsedRequest } from './types';
@@ -8,8 +8,12 @@ let _browser: Browser | null;
 
 async function getPage(isDev: boolean): Promise<Page> {
     if (!_browser) {
-        const options = await getOptions(isDev);
-        _browser = await launch(options);
+        if (process.env.BROWSER_WS_ENDPOINT) {
+            _browser = await connect({ browserWSEndpoint: process.env.BROWSER_WS_ENDPOINT });
+        } else {
+            const options = await getOptions(isDev);
+            _browser = await launch(options);
+        }
     }
     return _browser.newPage();
 }
@@ -31,7 +35,12 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     } else if (url.startsWith('data:text/html,')) {
         await page.setContent(url.substr('data:text/html,'.length), { waitUntil: 'networkidle0' });
     } else {
-        await page.goto(url, { waitUntil: 'networkidle2' });
+        await page.goto(url, {
+            waitUntil:
+                process.env.WAIT_UNTIL
+                    ? process.env.WAIT_UNTIL as LoadEvent
+                    : 'networkidle2',
+        });
     }
 
     if (waitforframe && page.frames().length > 1) {
@@ -85,6 +94,10 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     await page.goto('about:blank', { waitUntil: 'load' });
 
     await page.close();
+
+    if (_browser && process.env.BROWSER_WS_ENDPOINT) {
+        _browser.disconnect();
+    }
 
     return buffer;
 }

@@ -37,7 +37,38 @@ _ℹ️: Don't forget to URL encode query string parameters_
 
 The short answer is that it would take a long time to painstakingly design and run a screenshot service.
 
-That's where `screenshotter.vercel.app` comes in. You can simply pass the url and custom options to our service and it will return screenshots for you on the fly!
+That's where `screenshotter` comes in. You can simply pass the url and custom options to our service and it will return screenshots for you on the fly!
+
+
+## Development
+
+First, `npm install && npm run build`.
+
+### Option 1: Vercel
+
+1. Setup vercel project
+
+    ```
+    vercel
+    ```
+
+1. Start development server
+
+    ```
+    vercel dev
+    ```
+
+### Option 2: HTTP Server using `micro`
+
+```
+npm start
+```
+
+### Option 3: Docker
+
+```
+docker-compose up
+```
 
 
 ## License

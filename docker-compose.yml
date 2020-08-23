@@ -1,0 +1,37 @@
+version: "3"
+services:
+  screenshotter:
+    build: ./
+    restart: always
+    environment:
+      - BROWSER_WS_ENDPOINT=ws://browserless:3000
+      - WAIT_UNTIL=networkidle0
+    ports:
+      - 3000:3000
+    depends_on:
+      - browserless
+    networks:
+      - screenshotter_net
+
+  browserless:
+    image: browserless/chrome
+    restart: always
+    environment:
+      - MAX_CONCURRENT_SESSIONS=5
+      - CONNECTION_TIMEOUT=20000
+      - MAX_QUEUE_LENGTH=10
+      - PREBOOT_CHROME=true
+      - KEEP_ALIVE=true
+      - WORKSPACE_DELETE_EXPIRED=true
+      - WORKSPACE_EXPIRE_DAYS=1
+      - DEBUG=browserless/chrome*
+      - EXIT_ON_HEALTH_FAILURE=true
+      - DEFAULT_BLOCK_ADS=true
+      - ENABLE_DEBUGGER=false
+      - FUNCTION_ENABLE_INCOGNITO_MODE=true
+
+    networks:
+      - screenshotter_net
+
+networks:
+  screenshotter_net:
