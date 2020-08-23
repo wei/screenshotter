@@ -18,7 +18,7 @@ services:
     restart: always
     environment:
       - MAX_CONCURRENT_SESSIONS=5
-      - CONNECTION_TIMEOUT=20000
+      - CONNECTION_TIMEOUT=30000
       - MAX_QUEUE_LENGTH=10
       - PREBOOT_CHROME=true
       - KEEP_ALIVE=true
