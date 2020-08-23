@@ -7,7 +7,7 @@ import { ParsedRequest } from './types';
 let _browser: Browser | null;
 
 async function getPage(isDev: boolean): Promise<Page> {
-    if (!_browser) {
+    if (!_browser || !_browser.isConnected()) {
         if (process.env.BROWSER_WS_ENDPOINT) {
             _browser = await connect({ browserWSEndpoint: process.env.BROWSER_WS_ENDPOINT });
         } else {
@@ -94,10 +94,6 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     await page.goto('about:blank', { waitUntil: 'load' });
 
     await page.close();
-
-    if (_browser && process.env.BROWSER_WS_ENDPOINT) {
-        _browser.disconnect();
-    }
 
     return buffer;
 }
