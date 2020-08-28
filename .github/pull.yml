@@ -4,7 +4,3 @@ rules:
     upstream: vercel:main
     mergeMethod: hardreset
     mergeUnstable: true
-  - base: master
-    upstream: upstream
-    reviewers:
-      - wei
