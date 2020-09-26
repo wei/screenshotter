@@ -22,7 +22,7 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
     const page = await getPage(isDev);
 
     const {
-        url, selector, canvas, ua, viewport, dpr, full, css, waitforframe,
+        url, selector, canvas, ua, viewport, dpr, full, filetype, css, waitforframe,
     } = request;
 
     if (ua) {
@@ -80,19 +80,23 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
         }
     }
     if (selector && canvas) {
-        const pngDataURL: string = await page.evaluate((_elem) => _elem.toDataURL('image/png'), elem);
-        buffer = Buffer.from(pngDataURL.split(',')[1], 'base64');
+        const dataURL: string = await page.evaluate((_elem) => _elem.toDataURL(`image/${filetype}`), elem);
+        buffer = Buffer.from(dataURL.split(',')[1], 'base64');
     } else if (elem && !full) {
-        buffer = await elem.screenshot({ encoding: 'binary' });
+        buffer = await elem.screenshot({ encoding: 'binary', type: filetype, quality: 80 });
     } else if (!elem && full) {
-        buffer = await page.screenshot({ encoding: 'binary', fullPage: true });
+        buffer = await page.screenshot({
+            encoding: 'binary', fullPage: true, type: filetype, quality: 80,
+        });
     } else {
         if (elem) {
             await page.evaluate((_selector) => {
                 window.scrollBy(0, document.querySelector(_selector).offsetTop);
             }, selector);
         }
-        buffer = await page.screenshot({ encoding: 'binary', fullPage: false });
+        buffer = await page.screenshot({
+            encoding: 'binary', fullPage: false, type: filetype, quality: 80,
+        });
     }
 
     await page.goto('about:blank', { waitUntil: 'load' });

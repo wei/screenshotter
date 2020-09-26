@@ -8,6 +8,7 @@ export interface ParsedRequest {
     viewport: Viewport;
     dpr: number;
     full: boolean;
+    filetype: 'jpeg' | 'png';
     css: string | undefined;
     waitforframe: number | undefined;
 }
