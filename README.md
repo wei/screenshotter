@@ -10,6 +10,7 @@ Serverless service that generates dynamic screenshots on demand.
 | `url` | `string` | **Required**<br/>e.g. `https://wikipedia.org` |
 | `selector` | `string` | **css selector**<br/>e.g. `.central-featured` |
 | `viewport` | `string` | **viewport size**<br/>default: `1024,768` |
+| `dpr` | `integer` | **device scale factor**<br/>default: `1` |
 | `full` | `boolean` | **screenshot full page**<br/>default: (empty), set `full=1` to enable |
 | `ua` | `string` | **user agent**<br/>e.g. `Googlebot/2.1 (+http://www.google.com/bot.html)` |
 | `css` | `string` | **custom css**<br/>e.g. `body{background:lightyellow}` |

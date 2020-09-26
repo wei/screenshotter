@@ -6,7 +6,7 @@ export function parseRequest(req: IncomingMessage) {
     console.log(`HTTP ${req.url}`);
     const { query } = parse(req.url || '/', true);
     const {
-        url, selector, canvas, ua, viewport = '1024,768', full, css, waitforframe,
+        url, selector, canvas, ua, viewport = '1024,768', dpr = '1', full, css, waitforframe,
     } = (query || {});
 
     if (!url) {
@@ -28,6 +28,7 @@ export function parseRequest(req: IncomingMessage) {
             width: Number(viewport.toString().split(',')[0]),
             height: Number(viewport.toString().split(',')[1]),
         },
+        dpr: Number(dpr.toString()),
         full: !!(full || '').toString(),
         css: getArray(css).join(''),
         waitforframe: waitforframe ? Number(waitforframe.toString()) : undefined,

@@ -6,6 +6,7 @@ export interface ParsedRequest {
     canvas: boolean;
     ua: string | undefined;
     viewport: Viewport;
+    dpr: number;
     full: boolean;
     css: string | undefined;
     waitforframe: number | undefined;
