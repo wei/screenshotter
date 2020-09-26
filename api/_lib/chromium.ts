@@ -83,10 +83,17 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
         const dataURL: string = await page.evaluate((_elem) => _elem.toDataURL(`image/${filetype}`), elem);
         buffer = Buffer.from(dataURL.split(',')[1], 'base64');
     } else if (elem && !full) {
-        buffer = await elem.screenshot({ encoding: 'binary', type: filetype, quality: 80 });
+        buffer = await elem.screenshot({
+            encoding: 'binary',
+            type: filetype,
+            quality: filetype === 'jpeg' ? 80 : undefined,
+        });
     } else if (!elem && full) {
         buffer = await page.screenshot({
-            encoding: 'binary', fullPage: true, type: filetype, quality: 80,
+            encoding: 'binary',
+            fullPage: true,
+            type: filetype,
+            quality: filetype === 'jpeg' ? 80 : undefined,
         });
     } else {
         if (elem) {
@@ -95,7 +102,10 @@ export async function getScreenshot(request: ParsedRequest, isDev: boolean) {
             }, selector);
         }
         buffer = await page.screenshot({
-            encoding: 'binary', fullPage: false, type: filetype, quality: 80,
+            encoding: 'binary',
+            fullPage: false,
+            type: filetype,
+            quality: filetype === 'jpeg' ? 80 : undefined,
         });
     }
 
