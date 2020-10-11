@@ -4,9 +4,15 @@ import { getScreenshot } from './_lib/chromium';
 
 const isDev = !process.env.AWS_REGION;
 
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
+
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
     try {
-        const parsedReq = parseRequest(req);
+        const parsedReq = await parseRequest(req);
         const file = await getScreenshot(parsedReq, isDev);
         res.statusCode = 200;
         res.setHeader('Content-Type', `image/${parsedReq.filetype}`);

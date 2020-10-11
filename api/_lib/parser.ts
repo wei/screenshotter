@@ -1,13 +1,17 @@
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
+import { json } from 'micro';
 import { ParsedRequest } from './types';
 
-export function parseRequest(req: IncomingMessage) {
+export async function parseRequest(req: IncomingMessage) {
     console.log(`HTTP ${req.url}`);
     const { query } = parse(req.url || '/', true);
+
+    const bodyQuery = req.method === 'POST' ? await json(req) : null;
+
     const {
         url, selector, canvas, ua, viewport = '1024,768', dpr = '1', filetype = 'png', full, css, waitforframe,
-    } = (query || {});
+    } = bodyQuery as any || query || {};
 
     if (!url) {
         throw new Error('Missing url parameter');
