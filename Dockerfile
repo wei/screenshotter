@@ -25,9 +25,17 @@ ENV \
   WAIT_UNTIL=networkidle2 \
   _=
 
+ARG VCS_REF
+ARG BUILD_DATE
+
 LABEL \
-  org.label-schema.schema-version="1.0" \
-  org.label-schema.name="screenshotter" \
-  org.label-schema.url="https://github.com/wei/screenshotter" \
-  org.label-schema.vcs-url="https://github.com/wei/screenshotter" \
-  maintainer="Wei He <github@weispot.com>" \
+  org.opencontainers.image.title="screenshotter" \
+  org.opencontainers.image.description="Screenshot as a Service" \
+  org.opencontainers.image.url="https://github.com/wei/screenshotter" \
+  org.opencontainers.image.documentation="https://github.com/wei/screenshotter#readme" \
+  org.opencontainers.image.source="https://github.com/wei/screenshotter" \
+  org.opencontainers.image.licenses="MIT" \
+	org.opencontainers.image.ref.name=$VCS_REF \
+  org.opencontainers.image.created=$BUILD_DATE \
+  org.opencontainers.image.authors="Wei He <docker@weispot.com>" \
+  maintainer="Wei He <docker@weispot.com>"
