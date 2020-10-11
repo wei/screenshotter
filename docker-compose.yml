@@ -1,11 +1,12 @@
 version: "3"
 services:
   screenshotter:
-    build: ./
+    # build: ./
+    image: ghcr.io/wei/screenshotter
     restart: always
     environment:
       - BROWSER_WS_ENDPOINT=ws://browserless:3000
-      - WAIT_UNTIL=networkidle0
+      - WAIT_UNTIL=networkidle2
     ports:
       - 3000:3000
     depends_on:
@@ -28,6 +29,7 @@ services:
       - EXIT_ON_HEALTH_FAILURE=true
       - DEFAULT_BLOCK_ADS=true
       - ENABLE_DEBUGGER=false
+      - DEFAULT_USER_DATA_DIR=/tmp/shared-profile
     networks:
       - screenshotter_net
 
