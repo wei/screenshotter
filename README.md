@@ -1,4 +1,4 @@
-# Screenshotter - Screenshot as a Service
+![screenshotter](https://socialify.git.ci/wei/screenshotter/png?description=1&pattern=Plus&stargazers=0&theme=Light)
 
 Serverless service that generates dynamic screenshots on demand.
 
