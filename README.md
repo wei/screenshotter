@@ -23,12 +23,12 @@ _ℹ️ Don't forget to URL encode query string parameters_
 #### Latest Featured News
 ```
 /screenshot
-  ?url=https://www.bbc.com
-  &selector=.media
+  ?url=https://yahoo.com
+  &selector=[data-yaft-module=stream_item_1]>div
 ```
-[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://www.bbc.com&selector=.media)
+[**Sample Screenshot**](https://screenshotter.git.ci/screenshot?url=https://yahoo.com&selector=[data-yaft-module=stream_item_1]%3Ediv)
 
-![](https://screenshotter.git.ci/screenshot?url=https://www.bbc.com&selector=.media)
+![](https://screenshotter.git.ci/screenshot?url=https://yahoo.com&selector=[data-yaft-module=stream_item_1]%3Ediv)
 
 
 ## Development
