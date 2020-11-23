@@ -9,9 +9,9 @@
     "build": "tsc -p api/tsconfig.json"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^5.3.1",
+    "chrome-aws-lambda": "^5.5.0",
     "micro": "^9.3.4",
-    "puppeteer-core": "^5.3.1"
+    "puppeteer-core": "^5.5.0"
   },
   "devDependencies": {
     "@types/micro": "^7.3.3",
