@@ -11,7 +11,7 @@
   "dependencies": {
     "chrome-aws-lambda": "^7.0.0",
     "micro": "^9.3.4",
-    "puppeteer-core": "^7.0.1"
+    "puppeteer-core": "^7.0.4"
   },
   "devDependencies": {
     "@types/micro": "^7.3.5",
