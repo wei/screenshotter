@@ -14,7 +14,7 @@
     "puppeteer-core": "^7.0.1"
   },
   "devDependencies": {
-    "@types/micro": "^7.3.5",
+    "@types/micro": "^7.3.6",
     "@types/puppeteer": "^5.4.3",
     "@types/puppeteer-core": "5.4.0",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
